@@ -3,6 +3,7 @@ package cursopacote.executavel;
 import javax.swing.JOptionPane;
 
 import classes.Aluno;
+import classes.Disciplina;
 
 public class PrimeiraClasseJava {
 	
@@ -16,8 +17,18 @@ public class PrimeiraClasseJava {
 		 aluno.setIdade(Integer.valueOf(JOptionPane.showInputDialog("Digite a idade do aluno: ")));
 		 aluno.setNumeroCpf(JOptionPane.showInputDialog("Digite o CPF do aluno: "));
 		 
-		 //System.out.println(aluno.getNome()+" | "+aluno.getIdade()+" | "+aluno.getNumeroCpf());
+		 for (int pos = 1; pos <= 4 ; pos++) {
+			 String nomeDisciplina = JOptionPane.showInputDialog("Digite o nome da diciplina "+ pos +": " );
+			 String notaDisciplina = JOptionPane.showInputDialog("Digite a nota:" + pos + ": ");
+			 
+			 Disciplina disciplina = new Disciplina();
+			 disciplina.setDisciplina(nomeDisciplina);
+			 disciplina.setNota(Double.valueOf(notaDisciplina));
+			 
+			 aluno.getDisciplinas().add(disciplina);
+		 }
 		 
+		 System.out.println(aluno.getNome()+" | "+aluno.getIdade()+" | "+aluno.getNumeroCpf());		 
 		 System.out.println("Media da nota é: "+ aluno.getMediaNota());
 		 System.out.println("Resultado = "+ (aluno.getAlunoAprovado()? "Aprovado" : "Reprovado"));
 		 System.out.println(aluno.toString());
