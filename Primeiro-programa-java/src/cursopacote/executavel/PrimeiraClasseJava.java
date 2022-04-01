@@ -28,9 +28,16 @@ public class PrimeiraClasseJava {
 			 aluno.getDisciplinas().add(disciplina);
 		 }
 		 
+		 int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		 if (escolha == 0 ) {
+			 String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3 ou 4?");
+			 aluno.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue()-1);
+		 }
+		 
 		 System.out.println(aluno.getNome()+" | "+aluno.getIdade()+" | "+aluno.getNumeroCpf());		 
 		 System.out.println("Media da nota é: "+ aluno.getMediaNota());
-		 System.out.println("Resultado = "+ (aluno.getAlunoAprovado()? "Aprovado" : "Reprovado"));
+		 System.out.println("Resultado 1 = "+ (aluno.getAlunoAprovado()? "Aprovado" : "Reprovado"));
 		 System.out.println(aluno.toString());
+		 System.err.println(aluno.getAlunoAprovado2());
 	}
 }
